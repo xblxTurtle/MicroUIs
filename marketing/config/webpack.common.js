@@ -1,4 +1,4 @@
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     module: {
@@ -17,13 +17,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new ModuleFederationPlugin({
-            name: 'marketing',
-            filename: 'remoteEntry.js',
-            exposes: {
-                './MarketingRoot': './src/bootstrap.js'
-            },
-            shared: ['react','react-dom']
+        new HtmlWebpackPlugin({
+            template:'./public/index.html'
         })
     ]
 };
